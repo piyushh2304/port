@@ -68,12 +68,14 @@ RESUME DATA SOURCE:
 When asked about his contacts, mention his LinkedIn and GitHub links specifically.
 """
 
+@app.get("/api")
 @app.get("/")
 async def root():
     return {"message": "Piyush Portfolio API is running"}
 
 from fastapi.responses import StreamingResponse
 
+@app.post("/api/chat")
 @app.post("/chat")
 async def chat(request: ChatRequest):
     global OPENROUTER_API_KEY
