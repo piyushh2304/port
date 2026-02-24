@@ -84,6 +84,9 @@ async def chat(request: ChatRequest):
         load_dotenv()
         OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
     
+    if OPENROUTER_API_KEY:
+        OPENROUTER_API_KEY = OPENROUTER_API_KEY.strip().replace('"', '').replace("'", "")
+    
     if not OPENROUTER_API_KEY:
         error_msg = "OPENROUTER_API_KEY is missing. Please create a .env file in the backend folder with OPENROUTER_API_KEY=your_key"
         logger.error(error_msg)
