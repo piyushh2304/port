@@ -78,17 +78,13 @@ from fastapi.responses import StreamingResponse
 @app.post("/api/chat")
 @app.post("/chat")
 async def chat(request: ChatRequest):
-    global OPENROUTER_API_KEY
-    if not OPENROUTER_API_KEY:
-        # Re-try loading in case file was added
-        load_dotenv()
-        OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+    # Fetch key fresh from environment
+    key = os.getenv("OPENROUTER_API_KEY")
+    if key:
+        key = key.strip().replace('"', '').replace("'", "")
     
-    if OPENROUTER_API_KEY:
-        OPENROUTER_API_KEY = OPENROUTER_API_KEY.strip().replace('"', '').replace("'", "")
-    
-    if not OPENROUTER_API_KEY:
-        error_msg = "OPENROUTER_API_KEY is missing. Please create a .env file in the backend folder with OPENROUTER_API_KEY=your_key"
+    if not key:
+        error_msg = "OPENROUTER_API_KEY is missing in Vercel Environment Variables."
         logger.error(error_msg)
         raise HTTPException(status_code=500, detail=error_msg)
 
@@ -99,13 +95,16 @@ async def chat(request: ChatRequest):
     async def event_generator():
         async with httpx.AsyncClient() as client:
             try:
+                # Log first 4 chars for safe debugging (visible in Vercel logs)
+                print(f"Using API Key starting with: {key[:4] if key else 'None'}... Length: {len(key) if key else 0}")
+                
                 async with client.stream(
                     "POST",
                     "https://openrouter.ai/api/v1/chat/completions",
                     headers={
-                        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-                        "HTTP-Referer": "http://localhost:3000",
-                        "X-Title": "Piyush Portfolio Chat",
+                        "Authorization": f"Bearer {key}",
+                        "HTTP-Referer": "https://port-topaz-theta.vercel.app",
+                        "X-Title": "Piyush Portfolio",
                     },
                     json={
                         "model": "google/gemini-2.0-flash-001",
