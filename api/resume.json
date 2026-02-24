@@ -1,0 +1,90 @@
+{
+  "personal_info": {
+    "name": "Piyush Rajput",
+    "title": "Full Stack Developer",
+    "socials": [
+      {
+        "name": "WhatsApp/GitHub",
+        "url": "https://github.com/piyushh2304"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/piyush-rajput2004/"
+      },
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/_pxyushh._"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "title": "FullStack Developer Intern",
+      "company": "Param info society of I.T services",
+      "period": "JAN - MAY 2025",
+      "highlights": [
+        "Enhanced application security following Passive Defense Organization standards.",
+        "Designed map interfaces using MapsUI.",
+        "Developed industrial automation apps using C++ and Fatek API for PLC.",
+        "Worked with Windows Forms and WPF frameworks.",
+        "Executed XML to SVG conversions using X-DOM."
+      ]
+    },
+    {
+      "title": "Graduate Trainee Engineer",
+      "company": "Alphanext Technology Solutions",
+      "period": "OCT - DEC 2025",
+      "highlights": [
+        "Integrated dynamic data fetching from multiple APIs.",
+        "Developed automated Upwork proposal browser extension using Python and Selenium.",
+        "Designed responsive web interfaces using Next.js and ShadCN UI.",
+        "Automated repetitive workflows using n8n."
+      ]
+    },
+    {
+      "title": "Freelance Developer",
+      "company": "Self-Employed",
+      "period": "NOV 2025 - PRESENT",
+      "highlights": [
+        "Created personal portfolio using Three.js and React.",
+        "Gained skills in data visualization and statistical analysis.",
+        "Currently learning Machine Learning (supervised/unsupervised algorithms)."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Sommaire",
+      "description": "AI-Powered PDF to Summary Application using Next.js and Gemini AI.",
+      "url": "https://sommaire-alpha.vercel.app/"
+    },
+    {
+      "title": "CodeFoundry AI",
+      "description": "Agentic RAG platform for developer knowledge base using React 19 and Gemini 2.0.",
+      "url": "https://codefoundry-ten.vercel.app/"
+    },
+    {
+      "title": "NotionGPT",
+      "description": "AI-first collaborative workspace with autonomous research agents.",
+      "url": "https://notiongpt-xi.vercel.app/"
+    },
+    {
+      "title": "AI Resume Interactor",
+      "description": "AI-powered chat interface for resume interaction using FastAPI and OpenRouter.",
+      "url": "#chat"
+    }
+  ],
+  "skills": [
+    "React 19",
+    "Node.js",
+    "Python",
+    "FastAPI",
+    "MongoDB",
+    "PostgreSQL",
+    "Next.js",
+    "Tailwind CSS",
+    "Three.js",
+    "GSAP",
+    "Machine Learning"
+  ]
+}
