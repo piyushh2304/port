@@ -317,43 +317,10 @@ export const myProjects = [
       },
     ],
   },
-  {
-    id: 9,
-    title: "AI Resume Interactor",
-    description:
-      "A sophisticated AI-powered chat interface that allows users to interact directly with my professional resume, built with FastAPI and OpenRouter (Gemini).",
-    subDescription: [
-      "🤖 **Intelligent Querying**: Uses Gemini 2.0 Flash to answer specific questions about skills, experience, and projects.",
-      "⚡ **FastAPI Backend**: High-performance Python backend serving RAG-lite context to the AI model.",
-      "🎨 **Premium UI**: Glassmorphic floating chat interface with Framer Motion animations and real-time status indicators.",
-      "🔗 **OpenRouter Integration**: Scalable AI access using OpenRouter for state-of-the-art LLM performance."
-    ],
-    href: "#chat",
-    logo: "",
-    image: "/assets/projects/ai_chat.png",
-    tags: [
-      {
-        id: 1,
-        name: "React 19",
-        path: "/assets/logos/react.svg",
-      },
-      {
-        id: 2,
-        name: "Python",
-        path: "/assets/logos/python.svg",
-      },
-      {
-        id: 3,
-        name: "FastAPI",
-        path: "/assets/logos/fastapi.svg",
-      },
-      {
-        id: 4,
-        name: "Gemini",
-        path: "/assets/logos/google.svg",
-      },
-    ],
-  },
+
+
+
+
 ];
 
 export const mySocials = [
@@ -390,7 +357,7 @@ export const experiences = [
   {
     title: "Graduate Trainee Engineer",
     job: "Alphanext Technology Solutions",
-    date: "OCT - DEC 2025",
+    date: "OCT - NOV 2025",
     contents: [
       "Integrated dynamic data fetching from multiple APIs and internal web sources to display real-time information on the company website.",
       "Developed an automated Upwork proposal submission browser extension using Python, Selenium, n8n workflows, and REST integrations.",

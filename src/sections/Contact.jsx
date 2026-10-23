@@ -57,18 +57,16 @@ const Contact = () => {
     >
       <Particles
         className="absolute inset-0 -z-50"
-        quantity={100}
+        quantity={30}
         ease={80}
         color={"#ffffff"}
-        refresh
       />
       {showAlert && <Alert type={alertType} text={alertMessage} />}
       <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
         <div className="flex flex-col items-start w-full gap-5 mb-10">
           <h2 className="text-heading">Let's Talk</h2>
           <p className="font-normal text-neutral-400">
-            Whether you're looking to build a new website, improve your existing
-            platform, or bring a unique project to life, I'm here to help
+            Whether you're looking to build robust data pipelines, unlock actionable BI dashboards, optimize database architectures, or collaborate on intelligent AI systems, I'm here to help.
           </p>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>

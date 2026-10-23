@@ -1,15 +1,19 @@
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 const ParallaxBackground = () => {
-  const { scrollYProgress } = useScroll();
-  const x = useSpring(scrollYProgress, { damping: 50 });
-  const mountain3Y = useTransform(x, [0, 0.5], ["0%", "70%"]);
-  const planetsX = useTransform(x, [0, 0.5], ["0%", "-20%"]);
-  const mountain2Y = useTransform(x, [0, 0.5], ["0%", "30%"]);
-  const mountain1Y = useTransform(x, [0, 0.5], ["0%", "0%"]);
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const mountain3Y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const planetsX = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  const mountain2Y = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
 
   return (
-    <section className="absolute inset-0 bg-black/40">
+    <section ref={containerRef} className="absolute inset-0 bg-black/40 pointer-events-none">
       <div className="relative h-screen overflow-y-hidden">
         {/* Background Sky */}
         <div
@@ -22,7 +26,7 @@ const ParallaxBackground = () => {
         />
         {/* Mountain Layer 3 */}
         <motion.div
-          className="absolute inset-0 -z-40"
+          className="absolute inset-0 -z-40 will-change-transform"
           style={{
             backgroundImage: "url(/assets/mountain-3.png)",
             backgroundPosition: "bottom",
@@ -32,7 +36,7 @@ const ParallaxBackground = () => {
         />
         {/* Planets */}
         <motion.div
-          className="absolute inset-0 -z-30"
+          className="absolute inset-0 -z-30 will-change-transform"
           style={{
             backgroundImage: "url(/assets/planets.png)",
             backgroundPosition: "bottom",
@@ -42,7 +46,7 @@ const ParallaxBackground = () => {
         />
         {/* Mountain Layer 2 */}
         <motion.div
-          className="absolute inset-0 -z-20"
+          className="absolute inset-0 -z-20 will-change-transform"
           style={{
             backgroundImage: "url(/assets/mountain-2.png)",
             backgroundPosition: "bottom",
@@ -51,13 +55,12 @@ const ParallaxBackground = () => {
           }}
         />
         {/* Mountaine Layer 1 */}
-        <motion.div
+        <div
           className="absolute inset-0 -z-10"
           style={{
             backgroundImage: "url(/assets/mountain-1.png)",
             backgroundPosition: "bottom",
             backgroundSize: "cover",
-            y: mountain1Y,
           }}
         />
       </div>
